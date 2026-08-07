@@ -53,14 +53,14 @@ const projects: ProjectItem[] = [
         mediaSrc: mock06,
     },
     {
-        href: "https://www.byuh.edu/covid-19-case-management",
+        href: "",
         title: "Core VFX Framework",
         description:
             "A fun little side project that I made to see the potential of a VFX framework. The VFX is not the main focus of the project, but rather the invisible code that makes it all work.",
         mediaSrc: mock05,
     },
     {
-        href: "https://github.com/yujisatojr/multi-reg-analysis",
+        href: "",
         title: "Grid Plot System",
         description:
             "A fun little task I did under a day to showcase a smooth grid plot system.",

@@ -1,61 +1,48 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
+import { faDiscord, faRobloxCreatorStudio } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 function Contact() {
-
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
-
-  const form = useRef();
-
-  const sendEmail = (e: any) => {
-    e.preventDefault();
-
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
-
-    /* Uncomment below if you want to enable the emailJS */
-
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
-
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
-  };
+  const contactLinks = [
+    {
+      icon: faDiscord as IconProp,
+      label: 'Discord',
+      href: 'https://discord.com/users/345164749467811840',
+    },
+    {
+      icon: faRobloxCreatorStudio as IconProp,
+      label: 'Roblox Creator Hub',
+      href: 'https://devforum.roblox.com/u/EXM_0/summary',
+    },
+  ];
 
   return (
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
-          <p>Got a task waiting to be done? Contact me through Discord! (ynz.)<br/>Little side note: Please get straight to the point with what you want done. Thank you!<br/>Timezone: GMT+8</p>
+          <div className="contact-links" aria-label="Contact links">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+                aria-label={link.label}
+                title={link.label}
+              >
+                <FontAwesomeIcon icon={link.icon}/>
+              </a>
+            ))}
+          </div>
+          <p><br/>PS: Please get straight to the point with what you want done. Thank you!<br/>Timezone: GMT+8</p>
           
+
+
           {/* <Box
             ref={form}
             component="form"
